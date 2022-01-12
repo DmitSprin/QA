@@ -1,7 +1,6 @@
 package Pages;
 
 import Browser.BrowserСhoice;
-import Locators.MainPageLocators;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
@@ -12,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class MainPage implements BasePage{
     MainPageLocators locators = new MainPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
-
 
     public MainPage(){
 
