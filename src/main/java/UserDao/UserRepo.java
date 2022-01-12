@@ -1,6 +1,5 @@
 package UserDao;
 
-
 import static net.andreinc.mockneat.types.enums.StringType.NUMBERS;
 import static net.andreinc.mockneat.unit.text.Strings.strings;
 import static net.andreinc.mockneat.unit.user.Emails.emails;

@@ -1,4 +1,4 @@
-package Pages;
+package Steps;
 
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
@@ -7,8 +7,9 @@ import Utils.ExplicitStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ProductPage implements BasePage {
 
@@ -18,7 +19,7 @@ public class ProductPage implements BasePage {
 
     public ProductPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), productPageLocators);
-        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
+        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
     }
 

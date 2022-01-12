@@ -1,14 +1,15 @@
-package Tests;
+package BaseTest;
 
 
 import Browser.BrowserFactory;
 import Browser.BrowserСhoice;
-import Pages.MainPage;
+import Steps.MainPage;
 import org.testng.annotations.AfterTest;
 
 
 public class TestRunner {
-    final static String baseUrl = "https://www.citrus.ua/";
+    // final static String baseUrl = "https://www.citrus.ua/";
+    final static String baseUrl = "https://www.citrus.com.ua/uk/";
 
     public static MainPage loadApplication(){
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
@@ -18,7 +19,7 @@ public class TestRunner {
     }
     @AfterTest(alwaysRun = true )
     public void tearDown(){
-        BrowserСhoice.closeBrowser();
+        //   BrowserChoice.closeBrowser();
 
     }
 

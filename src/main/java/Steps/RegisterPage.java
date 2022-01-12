@@ -1,50 +1,49 @@
-package Pages;
+package Steps;
 
 import Browser.BrowserСhoice;
-
 import Locators.RegisterPageLocator;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
-public class RegisterPage implements  BasePage {
+public class RegisterPage implements BasePage {
     private RegisterPageLocator registerPageLocator = new RegisterPageLocator();
 
-    RegisterPage(){
-        PageFactory.initElements(BrowserСhoice.getDriver(),registerPageLocator);
-        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
+    RegisterPage() {
+        PageFactory.initElements(BrowserСhoice.getDriver(), registerPageLocator);
+        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
-    public void sendNameInRegisterField(User user){
+    public void sendNameInRegisterField(User user) {
         registerPageLocator.getRegisterFieldForName().sendKeys(user.getUserName());
     }
 
-    public void  sendEmailInRegisterField(User user){
+    public void sendEmailInRegisterField(User user) {
         registerPageLocator.getRegisterFieldForEmail().sendKeys(user.getEmail());
     }
 
-    public void sendPasswordInRegisterField(User user){
+    public void sendPasswordInRegisterField(User user) {
         registerPageLocator.getRegisterFieldForPassword().sendKeys(user.getPassword());
     }
 
-    public void sendPhoneInRegisterField(User user){
+    public void sendPhoneInRegisterField(User user) {
         registerPageLocator.getRegisterFieldForPhone().sendKeys(user.getPhoneNumber());
     }
 
-    public void clickOnRegisterButton(){
+    public void clickOnRegisterButton() {
         registerPageLocator.getRegisterButton().click();
     }
 
     //Business logics
 
-    public RegisterPage registerNewUser(User dao){
+    public RegisterPage registerNewUser(User dao) {
         sendEmailInRegisterField(dao);
         sendNameInRegisterField(dao);
         sendPasswordInRegisterField(dao);
         sendPhoneInRegisterField(dao);
         clickOnRegisterButton();
-        return  new RegisterPage();
+        return new RegisterPage();
     }
 
 }
