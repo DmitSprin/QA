@@ -1,6 +1,8 @@
 package Pages;
 
 import Browser.BrowserСhoice;
+import Locators.MainPageLocators;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;

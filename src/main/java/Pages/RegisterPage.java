@@ -2,6 +2,7 @@ package Pages;
 
 import Browser.BrowserСhoice;
 
+import Locators.RegisterPageLocator;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
 

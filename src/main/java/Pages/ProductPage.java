@@ -3,6 +3,7 @@ package Pages;
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
