@@ -11,14 +11,9 @@ public enum BrowserFactory {
     BrowsersList list;
 
     BrowserFactory(BrowsersList list) {
-      this.list = list;
+        this.list = list;
     }
-    WebDriver getDriver(){
+    WebDriver getDriver() {
         return list.getBrowser();
     }
-
-
 }
-
-
-

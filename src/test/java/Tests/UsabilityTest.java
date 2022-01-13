@@ -8,9 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
 public class UsabilityTest extends TestRunner {
-
 
     @Test()
     public void switchLanguage() {
@@ -46,5 +44,4 @@ public class UsabilityTest extends TestRunner {
         var demAfterScale = productPage.returnFirstProduct().getSize().width;
         Assert.assertNotEquals(demAfterScale, demBeforeScale);
     }
-
 }

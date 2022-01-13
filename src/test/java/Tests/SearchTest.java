@@ -15,7 +15,6 @@ public class SearchTest extends TestRunner {
     @DataProvider(name = "products", parallel = true)
     public Object[][] products() {
         return new Object[][]{{"iPhone"}, {"iPhone"}};
-
     }
 
     @Test(dataProvider = "products")
