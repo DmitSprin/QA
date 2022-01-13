@@ -8,8 +8,8 @@ import org.testng.annotations.AfterTest;
 
 
 public class TestRunner {
-    // final static String baseUrl = "https://www.citrus.ua/";
-    final static String baseUrl = "https://www.citrus.com.ua/uk/";
+     final static String baseUrl = "https://www.citrus.com.ua/uk/";
+    //final static String baseUrl = "https://www.citrus.com.ua/uk/";
 
     public static MainPage loadApplication(){
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);

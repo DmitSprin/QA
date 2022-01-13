@@ -16,7 +16,7 @@ public class OrderTests extends TestRunner {
 
     @DataProvider(name = "products name")
     public Object[][] productsName() {
-        return new Object[][]{{"Смартфоны", "Apple", "iPhone"}};
+        return new Object[][]{{"Смартфони", "Apple", "iPhone"}};
     }
 
     @Test(dataProvider = "products name")
@@ -42,14 +42,13 @@ public class OrderTests extends TestRunner {
     public void addProductToWishList(User user) throws InterruptedException {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
-        productPage.choiceСategoryAndSubCategory("Смартфоны", "Apple");
-        ;
+        productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();
-        Thread.sleep(1000);
+        basePage.waitUntilProductPageWillBeLoading();
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
-        Thread.sleep(3000);
+        basePage.waitUntilProductPageWillBeLoading();
         productPage.addToWishListButton();
         String numberOfProducts = basePage.getNumberFomWishList();
         Assert.assertEquals(numberOfProducts, "1");

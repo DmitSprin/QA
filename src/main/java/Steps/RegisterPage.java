@@ -45,5 +45,4 @@ public class RegisterPage implements BasePage {
         clickOnRegisterButton();
         return new RegisterPage();
     }
-
 }

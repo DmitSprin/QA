@@ -14,7 +14,6 @@ public class LoginTest extends TestRunner {
 
     @DataProvider(name = "exist user")
     public Object[][] getExistUser() {
-        ;
         return new Object[][]{{UserRepo.getExistUser()}
         };
     }
