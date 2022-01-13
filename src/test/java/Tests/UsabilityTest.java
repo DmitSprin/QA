@@ -17,7 +17,6 @@ public class UsabilityTest extends TestRunner {
         String URL = mainPage.getCurrentUrl();
         Assert.assertEquals(URL, "https://www.citrus.ua/");
     }
-
     @Test()
     public void testScrollerPage() {
         MainPage mainPage = loadApplication();
@@ -30,7 +29,7 @@ public class UsabilityTest extends TestRunner {
 
     @DataProvider(name = "products name")
     public Object[][] productsName() {
-        return new Object[][]{{"Смартфоны", "Apple", "iPhone"}};
+        return new Object[][]{{"Смартфони", "Apple", "iPhone"}};
     }
 
 

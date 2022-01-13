@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-
 public class SearchTest extends TestRunner {
 
     @DataProvider(name = "products", parallel = true)
@@ -29,7 +28,7 @@ public class SearchTest extends TestRunner {
 
     @DataProvider(name = "products name")
     public Object[][] productsName() {
-        return new Object[][]{{"Смартфоны", "Apple", "iPhone"}};
+        return new Object[][]{{"Смартфони", "Apple", "iPhone"}};
     }
 
     @Test(dataProvider = "products name")

@@ -36,7 +36,6 @@ public class RegisterPage implements BasePage {
     }
 
     //Business logics
-
     public RegisterPage registerNewUser(User dao) {
         sendEmailInRegisterField(dao);
         sendNameInRegisterField(dao);
@@ -45,5 +44,4 @@ public class RegisterPage implements BasePage {
         clickOnRegisterButton();
         return new RegisterPage();
     }
-
 }
