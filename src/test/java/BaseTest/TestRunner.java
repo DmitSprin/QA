@@ -13,7 +13,7 @@ public class TestRunner {
 
     public static MainPage mainPage;
 
-    public  void loadApplication() {
+    public void loadApplication() {
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
         BrowserСhoice.getUrl(baseUrl);
         mainPage = MainPage.getMainPage();
@@ -26,7 +26,7 @@ public class TestRunner {
 
     @BeforeMethod(alwaysRun = true)
     public void setUpDriver() {
-       loadApplication();
+        loadApplication();
     }
 
     @DataProvider(name = "exist user")
@@ -44,7 +44,7 @@ public class TestRunner {
         return new Object[][]{{UserRepo.createNewUser()}};
     }
 
-    @DataProvider(name = "products"/*, parallel = true*/)
+    @DataProvider(name = "products", parallel = true)
     public Object[][] products() {
         return new Object[][]{{"iPhone"}, {"iPhone"}};
     }

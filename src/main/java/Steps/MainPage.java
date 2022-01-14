@@ -13,7 +13,6 @@ import java.time.Duration;
 public class MainPage implements BasePage {
     MainPageLocators locators = new MainPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
-    private static MainPage mainPage;
 
     public MainPage() {
 
@@ -22,8 +21,7 @@ public class MainPage implements BasePage {
     }
 
     public static MainPage getMainPage() {
-        mainPage =  new MainPage();
-        return mainPage;
+        return new MainPage();
     }
 
     public void clickOnLoginButton() {

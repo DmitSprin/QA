@@ -11,7 +11,6 @@ public class RegisterTest extends TestRunner {
 
     @Test(dataProvider = "new user")
     public void createNewUser(User user) {
-        //MainPage mainPage = loadApplication();
         LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
@@ -22,7 +21,6 @@ public class RegisterTest extends TestRunner {
     //Negative test
     @Test(dataProvider = "exist user")
     public void createNewUserWithWrongCredential(User user) {
-        //MainPage mainPage = loadApplication();
         LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);

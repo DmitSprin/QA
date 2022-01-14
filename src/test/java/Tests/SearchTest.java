@@ -9,10 +9,8 @@ import java.util.List;
 public class SearchTest extends TestRunner {
 
     @Test(dataProvider = "products")
-    public void searchWithText(String prod) throws InterruptedException {
-        //MainPage mainPage = loadApplication();
+    public void searchWithText(String prod) {
         ProductPage productPage = mainPage.searchProductInTopSearch(prod);
-        Thread.sleep(1000);
         List<String> products = productPage.findAllProductsAndReturnName();
         List<String> sortedProduct = products.stream().filter(x -> x.contains(prod)).toList();
         assert (sortedProduct.size() != 0);
@@ -21,7 +19,6 @@ public class SearchTest extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod) {
-        //MainPage mainPage = loadApplication();
         ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         String productName = productPage.getNameFromFirstProduct();

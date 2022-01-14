@@ -13,7 +13,6 @@ public class OrderTests extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod) {
-       // MainPage basePage = loadApplication();
         ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         productPage.clickOnFirstProduct();
@@ -25,7 +24,6 @@ public class OrderTests extends TestRunner {
     //  unstable test
     @Test(dataProvider = "new user")
     public void addProductToWishList(User user) throws InterruptedException {
-       // MainPage basePage = loadApplication();
         ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();

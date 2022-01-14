@@ -19,7 +19,7 @@ public class ExplicitStrategy {
     }
 
     public List<WebElement> waitForElements(List<WebElement> elements) {
-        wait.until(ExpectedConditions.invisibilityOfAllElements(elements));
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return elements;
     }
 }
