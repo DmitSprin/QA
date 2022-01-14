@@ -46,5 +46,4 @@ public class UsabilityTest extends TestRunner {
         var demAfterScale = productPage.returnFirstProduct().getSize().width;
         Assert.assertNotEquals(demAfterScale, demBeforeScale);
     }
-
 }

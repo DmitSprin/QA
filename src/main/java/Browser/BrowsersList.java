@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public interface BrowsersList {
     public WebDriver getBrowser();
-
 }
 
     class ChromeDriverBrowser implements BrowsersList{
@@ -37,4 +36,3 @@ public interface BrowsersList {
             return  new EdgeDriver();
         }
     }
-

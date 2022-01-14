@@ -4,7 +4,6 @@ import Browser.BrowserСhoice;
 import Locators.LoginPageLocator;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
 
 
@@ -64,12 +63,10 @@ public class LoginPage implements BasePage {
         sendPasswordInPasswordField(dao);
         clickOnLoginButton();
         return new LoginPage();
-
     }
 
     public RegisterPage goToRegisterPage() {
         loginPageLocator.getRegisteringButton().click();
         return new RegisterPage();
-
     }
 }

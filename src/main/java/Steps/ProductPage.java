@@ -35,7 +35,6 @@ public class ProductPage implements BasePage {
     public void clickOnBuyButton() {
         WebElement waitingElement = strategy.waitForElement(productPageLocators.getBuyButton());
         waitingElement.click();
-
     }
 
     public String orderConfirmText() {
@@ -72,6 +71,5 @@ public class ProductPage implements BasePage {
         allCategories.stream().filter(x -> x.getText().contains(cat))
                 .forEach(x -> builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
-
     }
 }

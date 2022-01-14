@@ -4,7 +4,6 @@ import Browser.BrowserСhoice;
 import Locators.RegisterPageLocator;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
 
 public class RegisterPage implements BasePage {
@@ -36,7 +35,6 @@ public class RegisterPage implements BasePage {
     }
 
     //Business logics
-
     public RegisterPage registerNewUser(User dao) {
         sendEmailInRegisterField(dao);
         sendNameInRegisterField(dao);
