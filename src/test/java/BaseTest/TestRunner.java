@@ -13,7 +13,8 @@ public class TestRunner {
 
     public static MainPage mainPage;
 
-    public void loadApplication() {
+    @BeforeMethod(alwaysRun = true)
+    public void setUpDriver() {
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
         BrowserСhoice.getUrl(baseUrl);
         mainPage = MainPage.getMainPage();
@@ -22,11 +23,6 @@ public class TestRunner {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         BrowserСhoice.closeBrowser();
-    }
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUpDriver() {
-        loadApplication();
     }
 
     @DataProvider(name = "exist user")

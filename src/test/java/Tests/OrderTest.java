@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class OrderTests extends TestRunner {
+public class OrderTest extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod) {
@@ -21,7 +21,6 @@ public class OrderTests extends TestRunner {
         Assert.assertTrue(productName.contains(prod));
     }
 
-    //  unstable test
     @Test(dataProvider = "new user")
     public void addProductToWishList(User user) throws InterruptedException {
         ProductPage productPage = mainPage.moveToCatalog();
