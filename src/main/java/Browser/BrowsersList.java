@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public interface BrowsersList {
 
-    public WebDriver getBrowser();
+     WebDriver getBrowser();
 }
 
 class ChromeDriverBrowser implements BrowsersList {

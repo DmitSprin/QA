@@ -13,11 +13,17 @@ import java.time.Duration;
 public class MainPage implements BasePage {
     MainPageLocators locators = new MainPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
+    private static MainPage mainPage;
 
     public MainPage() {
 
         PageFactory.initElements(BrowserСhoice.getDriver(), locators);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+    }
+
+    public static MainPage getMainPage() {
+        mainPage =  new MainPage();
+        return mainPage;
     }
 
     public void clickOnLoginButton() {

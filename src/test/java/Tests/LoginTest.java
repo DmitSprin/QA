@@ -2,26 +2,16 @@ package Tests;
 
 import BaseTest.TestRunner;
 import Steps.LoginPage;
-import Steps.MainPage;
 import UserDao.User;
-import UserDao.UserRepo;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
 public class LoginTest extends TestRunner {
 
-    @DataProvider(name = "exist user")
-    public Object[][] getExistUser() {
-        ;
-        return new Object[][]{{UserRepo.getExistUser()}
-        };
-    }
-
     @Test(dataProvider = "exist user")
     public void loginByPhone(User user) {
-        MainPage mainPage = loadApplication();
+       // MainPage mainPage = loadApplication();
         LoginPage loginPage = mainPage.goToLoginPage().loginByPhoneNumber(user);
         String phone = loginPage.getTextFromMobileMessageEntrance();
         Assert.assertTrue(phone.contains(user.getPhoneNumber()));
@@ -29,7 +19,7 @@ public class LoginTest extends TestRunner {
 
     @Test(dataProvider = "exist user")
     public void loginByEmail(User user) {
-        MainPage mainPage = loadApplication();
+       // MainPage mainPage = loadApplication();
         LoginPage loginPage = mainPage.goToLoginPage().loginByEmailNumber(user);
         String name = loginPage.getAccountNameText();
         Assert.assertEquals(name, user.getUserName());

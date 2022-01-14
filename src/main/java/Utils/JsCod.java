@@ -7,7 +7,7 @@ import java.time.Duration;
 
 public class JsCod {
 
-    public static void scrollDown(){
+    public static void scrollDown() {
         JavascriptExecutor js = (JavascriptExecutor) BrowserСhoice.getDriver();
         js.executeScript("window.scrollBy(0,1500)");
     }
