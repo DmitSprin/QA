@@ -20,6 +20,10 @@ public class MainPage implements BasePage {
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
+    public static MainPage getMainPage() {
+        return new MainPage();
+    }
+
     public void clickOnLoginButton() {
         locators.getLoginButton().click();
     }

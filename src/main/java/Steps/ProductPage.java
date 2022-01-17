@@ -3,11 +3,9 @@ package Steps;
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -20,7 +18,6 @@ public class ProductPage implements BasePage {
     public ProductPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), productPageLocators);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-
     }
 
     public String getNameFromFirstProduct(){
@@ -30,6 +27,7 @@ public class ProductPage implements BasePage {
     public void clickOnFirstProduct(){
         productPageLocators.getFirstProductOnPage().click();
     }
+
     public WebElement returnFirstProduct(){
         return productPageLocators.getFirstProductOnPage();
     }
@@ -37,7 +35,6 @@ public class ProductPage implements BasePage {
     public void clickOnBuyButton()  {
       WebElement waitingElement =  strategy.waitForElement(productPageLocators.getBuyButton());
         waitingElement.click();
-
     }
 
     public String  orderConfirmText(){
@@ -58,7 +55,6 @@ public void moveToSubMenu(String subProd){
        List<WebElement> subCategoriesSorted =
                subCategories.stream().filter(x->x.getText().contains(subProd)).toList();
           subCategoriesSorted.stream().findFirst().get().click();
-
     }
 
     public void choiceСategory(String cat) {
@@ -72,6 +68,5 @@ public void moveToSubMenu(String subProd){
          allCategories.stream().filter(x->x.getText().contains(cat))
                 .forEach(x->builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
-
     }
 }
