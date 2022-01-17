@@ -7,11 +7,11 @@ import java.util.List;
 
 public class XpathLocators {
     //using child
-    @FindBy(xpath = ".//button //div[@class='pr']//child::*")
+    @FindBy(xpath = ".//button//div[@class='pr']//child::svg")
     private WebElement logIn;
 
     //using text() and boolean 'or'
-    @FindBy(xpath = ".//*[@class='df aic jcsb'] //*[text()='Смартфони' or text()='Смартфоны']")
+    @FindBy(xpath = ".//a[@class='df aic jcsb']//div[text()='Смартфони' or text()='Смартфоны']")
     private WebElement smartphoneFromCatalog;
 
     //using function 'starts-with'
@@ -20,14 +20,13 @@ public class XpathLocators {
 
     //using function 'contains'
     @FindBy(xpath = ".//a[contains(@class,'dn aic jcc favorites')]")
-    private WebElement wishList;
+    private WebElement wishesList;
 
     //using following-sibling
     @FindBy(xpath = ".//ul//following-sibling::li")
-    private List<WebElement> headerList;
+    private List<WebElement> headersList;
 
     //using boolean '>' operator
-    @FindBy(xpath = ".//span[@class='medium price-0-2-157' and text()>'800']")
+    @FindBy(xpath = ".//span[@class='medium price-0-2-157'and text()>'800']")
     private List<WebElement> productWithMoreThen800Price;
-
 }
