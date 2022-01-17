@@ -20,6 +20,6 @@ public class RegisterPageLocator {
     @FindBy(xpath = "//input[@name = 'password']")
     private WebElement  registerFieldForPassword;
 
-    @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //button[@type='submit']")
+    @FindBy(xpath = "//div[@class='full-height df fdc jcc']//button[@type='submit']")
     private WebElement registerButton;
 }

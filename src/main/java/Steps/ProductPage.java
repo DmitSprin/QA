@@ -20,25 +20,25 @@ public class ProductPage implements BasePage {
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
-    public String getNameFromFirstProduct() {
-        return productPageLocators.getFirstProductOnPage().getText();
+    public String getNameFromFirstProduct(){
+       return productPageLocators.getFirstProductOnPage().getText();
     }
 
-    public void clickOnFirstProduct() {
+    public void clickOnFirstProduct(){
         productPageLocators.getFirstProductOnPage().click();
     }
 
-    public WebElement returnFirstProduct() {
+    public WebElement returnFirstProduct(){
         return productPageLocators.getFirstProductOnPage();
     }
 
-    public void clickOnBuyButton() {
-        WebElement waitingElement = strategy.waitForElement(productPageLocators.getBuyButton());
+    public void clickOnBuyButton()  {
+      WebElement waitingElement =  strategy.waitForElement(productPageLocators.getBuyButton());
         waitingElement.click();
     }
 
-    public String orderConfirmText() {
-        return productPageLocators.getOrderConfirm().getText();
+    public String  orderConfirmText(){
+       return productPageLocators.getOrderConfirm().getText();
     }
 
     public List<String> findAllProductsAndReturnName() {
@@ -46,30 +46,27 @@ public class ProductPage implements BasePage {
         return productPageLocators.getProducts().stream().map(WebElement::getText).toList();
     }
 
-    public void addToWishListButton() {
-        WebElement wishlist = productPageLocators.getAddToWishList();
-        strategy.waitForElement(wishlist);
-        wishlist.click();
+    public void addToWishListButton(){
+        productPageLocators.getAddToWishList().click();
     }
 
-    public void moveToSubMenu(String subProd) {
+public void moveToSubMenu(String subProd){
         List<WebElement> subCategories = productPageLocators.getSubCategories();
-        List<WebElement> subCategoriesSorted =
-                subCategories.stream().filter(x -> x.getText().contains(subProd)).toList();
-        subCategoriesSorted.stream().findFirst().get().click();
-
+       List<WebElement> subCategoriesSorted =
+               subCategories.stream().filter(x->x.getText().contains(subProd)).toList();
+          subCategoriesSorted.stream().findFirst().get().click();
     }
 
     public void choiceСategory(String cat) {
-        List<WebElement> allCategories = productPageLocators.getCategories();
-        allCategories.stream().filter(x -> x.getText().contains(cat))
-                .forEach(x -> builder.moveToElement(x).build().perform());
+        List<WebElement> allCategories =  productPageLocators.getCategories();
+        allCategories.stream().filter(x->x.getText().contains(cat))
+                .forEach(x->builder.moveToElement(x).build().perform());
     }
 
-    public void choiceСategoryAndSubCategory(String cat, String sub) {
-        List<WebElement> allCategories = productPageLocators.getCategories();
-        allCategories.stream().filter(x -> x.getText().contains(cat))
-                .forEach(x -> builder.moveToElement(x).build().perform());
+    public void choiceСategoryAndSubCategory(String cat,String sub) {
+        List<WebElement> allCategories =  productPageLocators.getCategories();
+         allCategories.stream().filter(x->x.getText().contains(cat))
+                .forEach(x->builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
     }
 }

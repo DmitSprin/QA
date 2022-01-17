@@ -10,7 +10,7 @@ public class LoginPageLocator extends MainPageLocators {
     @FindBy(xpath = "//input[@name='phone']")
     private WebElement entryFieldByLoginByPhone;
 
-    @FindBy(xpath = "//span[contains(@class, 'dashed-text autorizeName')]")
+    @FindBy(xpath = "//span[contains(@class,'dashed-text autorizeName')]")
     private WebElement account;
 
     @FindBy(xpath = "//input[@name='password']")
@@ -31,6 +31,6 @@ public class LoginPageLocator extends MainPageLocators {
     @FindBy(xpath = "//input[@name='email']")
     private WebElement entryFieldByLoginByEmail;
 
-    @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //a[@class='link']")
+    @FindBy(xpath = "//div[@class='full-height df fdc jcc']//a[@class='link']")
     private WebElement registeringButton;
 }

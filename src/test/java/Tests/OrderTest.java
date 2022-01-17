@@ -2,27 +2,17 @@ package Tests;
 
 import BaseTest.TestRunner;
 import Steps.LoginPage;
-import Steps.MainPage;
 import Steps.ProductPage;
 import Steps.RegisterPage;
 import UserDao.User;
-import UserDao.UserRepo;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
-public class OrderTests extends TestRunner {
-
-    @DataProvider(name = "products name")
-    public Object[][] productsName() {
-        return new Object[][]{{"Смартфони", "Apple", "iPhone"}};
-    }
+public class OrderTest extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod) {
-        MainPage basePage = loadApplication();
-        ProductPage productPage = basePage.moveToCatalog();
+        ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         productPage.clickOnFirstProduct();
         productPage.clickOnBuyButton();
@@ -30,27 +20,18 @@ public class OrderTests extends TestRunner {
         Assert.assertTrue(productName.contains(prod));
     }
 
-    @DataProvider(name = "new user")
-    public Object[][] getNewUser() {
-        ;
-        return new Object[][]{{UserRepo.createNewUser()}
-        };
-    }
-
-    //  unstable test
     @Test(dataProvider = "new user")
     public void addProductToWishList(User user) throws InterruptedException {
-        MainPage basePage = loadApplication();
-        ProductPage productPage = basePage.moveToCatalog();
+        ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();
-        basePage.waitUntilProductPageWillBeLoading();
-        LoginPage loginPage = basePage.goToLoginPage();
+        Thread.sleep(1000);
+        LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
-        basePage.waitUntilProductPageWillBeLoading();
+        Thread.sleep(3000);
         productPage.addToWishListButton();
-        String numberOfProducts = basePage.getNumberFomWishList();
+        String numberOfProducts = mainPage.getNumberFomWishList();
         Assert.assertEquals(numberOfProducts, "1");
     }
 }

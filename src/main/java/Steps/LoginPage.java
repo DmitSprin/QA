@@ -6,7 +6,6 @@ import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
-
 public class LoginPage implements BasePage {
 
     LoginPageLocator loginPageLocator = new LoginPageLocator();
