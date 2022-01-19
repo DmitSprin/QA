@@ -10,7 +10,7 @@ public class LoginPage implements BasePage {
 
     LoginPageLocator loginPageLocator = new LoginPageLocator();
 
-    LoginPage() {
+    public LoginPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }

@@ -5,6 +5,7 @@ import Steps.LoginPage;
 import Steps.ProductPage;
 import Steps.RegisterPage;
 import UserDao.User;
+import Utils.ExplicitStrategy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,11 +26,10 @@ public class OrderTest extends TestRunner {
         ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();
-        Thread.sleep(1000);
+        ExplicitStrategy.waitUntilProductPageWillBeLoading();
         LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
-        Thread.sleep(3000);
         productPage.addToWishListButton();
         String numberOfProducts = mainPage.getNumberFomWishList();
         Assert.assertEquals(numberOfProducts, "1");

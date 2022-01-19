@@ -14,7 +14,6 @@ public class BrowserСhoice {
             setDriver(BrowserFactory.DEFAULT_BROWSER);
         }
         WebDriver driver = drivers.get(Thread.currentThread().getId());
-        System.out.println( "driver is in Tread" + Thread.currentThread().getId());
         return driver;
     }
 
@@ -30,7 +29,6 @@ public class BrowserСhoice {
         for (Map.Entry<Long, WebDriver> entry : drivers.entrySet()) {
             if (entry.getKey() != null) {
                 entry.getValue().manage().deleteAllCookies();
-                System.out.println("Driver with id = "+Thread.currentThread().getId()+ "will be quit");
                 entry.getValue().quit();
             }
         }
