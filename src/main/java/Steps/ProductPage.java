@@ -51,7 +51,7 @@ public class ProductPage implements BasePage {
         WebElement wishlist = productPageLocators.getAddToWishList();
         LoginPageLocator loginPage = new LoginPageLocator();
         ExplicitStrategy.waitForElement(BrowserСhoice.getDriver().findElement(
-                By.xpath("//span[contains(@class,'dashed-text autorizeName')]")));
+                By.xpath(".//span[contains(@class,'dashed-text autorizeName')]")));
         wishlist.click();
     }
 
