@@ -1,7 +1,7 @@
 package Steps;
 
 import Browser.BrowserСhoice;
-import Locators.LoginPageLocator;
+import Locators.LoginPageLocators;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
 import org.openqa.selenium.WebElement;
@@ -49,9 +49,9 @@ public class ProductPage implements BasePage {
     }
 
     public void addToWishListButton() {
-        LoginPageLocator loginPage = new LoginPageLocator();
-        PageFactory.initElements(BrowserСhoice.getDriver(), loginPage);
-        ExplicitStrategy.waitForElement(loginPage.getAccount());
+        LoginPageLocators loginPageLocator = new LoginPageLocators();
+        PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);
+        ExplicitStrategy.waitForElement(loginPageLocator.getAccount());
         productPageLocators.getAddToWishList().click();
     }
 

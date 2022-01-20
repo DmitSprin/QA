@@ -1,14 +1,14 @@
 package Steps;
 
 import Browser.BrowserСhoice;
-import Locators.LoginPageLocator;
+import Locators.LoginPageLocators;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
 public class LoginPage implements BasePage {
 
-    LoginPageLocator loginPageLocator = new LoginPageLocator();
+    LoginPageLocators loginPageLocator = new LoginPageLocators();
 
     public LoginPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);
