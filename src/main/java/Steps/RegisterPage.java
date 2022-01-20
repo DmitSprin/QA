@@ -1,13 +1,13 @@
 package Steps;
 
 import Browser.BrowserСhoice;
-import Locators.RegisterPageLocator;
+import Locators.RegisterPageLocators;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
 public class RegisterPage implements BasePage {
-    private RegisterPageLocator registerPageLocator = new RegisterPageLocator();
+    private RegisterPageLocators registerPageLocator = new RegisterPageLocators();
 
     public RegisterPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), registerPageLocator);

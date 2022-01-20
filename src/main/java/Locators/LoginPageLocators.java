@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Getter
-public class LoginPageLocator extends MainPageLocators {
+public class LoginPageLocators extends MainPageLocators {
 
     @FindBy(xpath = "//input[@name='phone']")
     private WebElement entryFieldByLoginByPhone;
