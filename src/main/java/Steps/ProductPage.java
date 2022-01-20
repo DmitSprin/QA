@@ -27,6 +27,7 @@ public class ProductPage implements BasePage {
 
     public void clickOnFirstProduct() {
         productPageLocators.getFirstProductOnPage().click();
+        ExplicitStrategy.waitUntilElementToBeVisibility(productPageLocators.getProductPageLoadMarker());
     }
 
     public WebElement returnFirstProduct() {

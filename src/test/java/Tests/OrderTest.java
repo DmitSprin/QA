@@ -26,7 +26,6 @@ public class OrderTest extends TestRunner {
         ProductPage productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();
-        ExplicitStrategy.waitUntilProductPageWillBeLoading();
         LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);

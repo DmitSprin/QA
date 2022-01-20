@@ -1,13 +1,8 @@
 package Utils;
 
 import Browser.BrowserСhoice;
-import Locators.LoginPageLocator;
-import Steps.LoginPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -26,16 +21,9 @@ public class ExplicitStrategy {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return elements;
     }
-
-    //this method wait until page with product will be loaded
-    public static void waitUntilProductPageWillBeLoading() {
-        LoginPageLocator loginPageLocator = new LoginPageLocator();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(".//div[contains(@class,'full-width df jcc aic slide')]")));
-    }
-
-    public WebElement waitUntilElementToBeClickable(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+    
+    public static WebElement waitUntilElementToBeVisibility(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
