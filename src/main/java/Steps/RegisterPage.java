@@ -4,13 +4,12 @@ import Browser.BrowserСhoice;
 import Locators.RegisterPageLocator;
 import UserDao.User;
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
 
 public class RegisterPage implements BasePage {
     private RegisterPageLocator registerPageLocator = new RegisterPageLocator();
 
-    RegisterPage() {
+    public RegisterPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), registerPageLocator);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }

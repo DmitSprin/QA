@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 public class TestRunner {
+    //https://www.ctrs.com.ua/
     final static String baseUrl = "https://www.citrus.com.ua/uk/";
 
     public static MainPage mainPage;

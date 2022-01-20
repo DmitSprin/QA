@@ -7,7 +7,6 @@ public enum BrowserFactory {
     CHROME_DRIVER(new ChromeDriverBrowser()),
     FIREFOX_DRIVER(new FirefoxBrowser()),
     EDGE_BROWSER(new EgeBrowser());
-
     BrowsersList list;
 
     BrowserFactory(BrowsersList list) {

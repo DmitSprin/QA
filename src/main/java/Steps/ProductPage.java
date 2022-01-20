@@ -1,11 +1,13 @@
 package Steps;
 
 import Browser.BrowserСhoice;
+import Locators.LoginPageLocator;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -13,60 +15,63 @@ public class ProductPage implements BasePage {
 
     ProductPageLocators productPageLocators = new ProductPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
-    ExplicitStrategy strategy = new ExplicitStrategy();
 
     public ProductPage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), productPageLocators);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
-    public String getNameFromFirstProduct(){
-       return productPageLocators.getFirstProductOnPage().getText();
+    public String getNameFromFirstProduct() {
+        return productPageLocators.getFirstProductOnPage().getText();
     }
 
-    public void clickOnFirstProduct(){
+    public void clickOnFirstProduct() {
         productPageLocators.getFirstProductOnPage().click();
+        ExplicitStrategy.waitUntilElementToBeVisibility(productPageLocators.getProductPageLoadMarker());
     }
 
-    public WebElement returnFirstProduct(){
+    public WebElement returnFirstProduct() {
         return productPageLocators.getFirstProductOnPage();
     }
 
-    public void clickOnBuyButton()  {
-      WebElement waitingElement =  strategy.waitForElement(productPageLocators.getBuyButton());
+    public void clickOnBuyButton() {
+        WebElement waitingElement = ExplicitStrategy.waitForElement(productPageLocators.getBuyButton());
         waitingElement.click();
     }
 
-    public String  orderConfirmText(){
-       return productPageLocators.getOrderConfirm().getText();
+    public String orderConfirmText() {
+        return productPageLocators.getOrderConfirm().getText();
     }
 
     public List<String> findAllProductsAndReturnName() {
-        strategy.waitForElements(productPageLocators.getProducts());
+        ExplicitStrategy.waitForElements(productPageLocators.getProducts());
         return productPageLocators.getProducts().stream().map(WebElement::getText).toList();
     }
 
-    public void addToWishListButton(){
+    public void addToWishListButton() {
+        LoginPageLocator loginPage = new LoginPageLocator();
+        PageFactory.initElements(BrowserСhoice.getDriver(), loginPage);
+        ExplicitStrategy.waitForElement(loginPage.getAccount());
         productPageLocators.getAddToWishList().click();
     }
 
-public void moveToSubMenu(String subProd){
+    public void moveToSubMenu(String subProd) {
         List<WebElement> subCategories = productPageLocators.getSubCategories();
-       List<WebElement> subCategoriesSorted =
-               subCategories.stream().filter(x->x.getText().contains(subProd)).toList();
-          subCategoriesSorted.stream().findFirst().get().click();
+        List<WebElement> subCategoriesSorted =
+                subCategories.stream().filter(x -> x.getText().contains(subProd)).toList();
+        subCategoriesSorted.stream().findFirst().get().click();
     }
 
     public void choiceСategory(String cat) {
-        List<WebElement> allCategories =  productPageLocators.getCategories();
-        allCategories.stream().filter(x->x.getText().contains(cat))
-                .forEach(x->builder.moveToElement(x).build().perform());
+        List<WebElement> allCategories = productPageLocators.getCategories();
+        allCategories.stream().filter(x -> x.getText().contains(cat))
+                .forEach(x -> builder.moveToElement(x).build().perform());
     }
 
-    public void choiceСategoryAndSubCategory(String cat,String sub) {
-        List<WebElement> allCategories =  productPageLocators.getCategories();
-         allCategories.stream().filter(x->x.getText().contains(cat))
-                .forEach(x->builder.moveToElement(x).build().perform());
+    public void choiceСategoryAndSubCategory(String cat, String sub) {
+        List<WebElement> allCategories = productPageLocators.getCategories();
+        allCategories.stream().filter(x -> x.getText().contains(cat))
+                .forEach(x -> builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
     }
 }

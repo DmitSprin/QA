@@ -28,4 +28,7 @@ public class ProductPageLocators {
 
     @FindBy(xpath = "//div[@class='mt32']//button[contains(@class,'buyButton-')]")
     private WebElement buyButton;
+
+    @FindBy(xpath = "//div[contains(@class,'full-width df jcc aic slide')]")
+    private WebElement productPageLoadMarker;
 }
