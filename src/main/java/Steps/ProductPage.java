@@ -4,10 +4,10 @@ import Browser.BrowserСhoice;
 import Locators.LoginPageLocator;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -49,11 +49,10 @@ public class ProductPage implements BasePage {
     }
 
     public void addToWishListButton() {
-        WebElement wishlist = productPageLocators.getAddToWishList();
         LoginPageLocator loginPage = new LoginPageLocator();
-        ExplicitStrategy.waitForElement(BrowserСhoice.getDriver().findElement(
-                By.xpath(".//span[contains(@class,'dashed-text autorizeName')]")));
-        wishlist.click();
+        PageFactory.initElements(BrowserСhoice.getDriver(), loginPage);
+        ExplicitStrategy.waitForElement(loginPage.getAccount());
+        productPageLocators.getAddToWishList().click();
     }
 
     public void moveToSubMenu(String subProd) {

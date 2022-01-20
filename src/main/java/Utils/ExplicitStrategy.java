@@ -21,7 +21,7 @@ public class ExplicitStrategy {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
         return elements;
     }
-    
+
     public static WebElement waitUntilElementToBeVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
         return element;
