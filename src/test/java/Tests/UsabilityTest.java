@@ -1,8 +1,8 @@
 package Tests;
 
 import BaseTest.TestRunner;
-import Steps.ProductPage;
-import Utils.JsCod;
+import Steps.ProductSteps;
+import Utils.jsActions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,7 +18,7 @@ public class UsabilityTest extends TestRunner {
     @Test()
     public void testScrollerPage() {
         var firstPosition = mainPage.getPoint();
-        JsCod.scrollDown();
+        jsActions.scrollDown();
         mainPage.clickOnScrollButton();
         var secondPosition = mainPage.getPoint();
         Assert.assertNotEquals(firstPosition.getY(), secondPosition.getY());
@@ -26,7 +26,7 @@ public class UsabilityTest extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void scaleProductImageTest(String cat, String subCat, String pro) {
-        ProductPage productPage = mainPage.moveToCatalog();
+        ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         var demBeforeScale = productPage.returnFirstProduct().getSize().width;
         mainPage.setMaxWindowResolution();
