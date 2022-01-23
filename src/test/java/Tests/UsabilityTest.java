@@ -12,7 +12,7 @@ public class UsabilityTest extends TestRunner {
     public void switchLanguage() {
         mainPage.changeLanguage();
         String URL = mainPage.getCurrentUrl();
-        Assert.assertEquals(URL, "https://www.citrus.com.ua/uk/");
+        Assert.assertEquals(URL, "https://www.ctrs.com.ua/uk/");
     }
 
     @Test()

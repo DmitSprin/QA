@@ -3,12 +3,16 @@ package Pages;
 import Browser.BrowserСhoice;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public abstract class BasePage {
 
     BasePage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), this);
+        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
     public Dimension getWindowResolution() {

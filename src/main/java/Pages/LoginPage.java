@@ -9,9 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 @Getter
 public class LoginPage extends  BasePage{
-    public LoginPage(){
-        PageFactory.initElements(BrowserСhoice.getDriver(),this);
-    }
 
     @FindBy(xpath = "//input[@name='phone']")
     private WebElement entryFieldByLoginByPhone;
