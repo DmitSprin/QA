@@ -13,28 +13,28 @@ import org.openqa.selenium.support.FindBy;
 @Getter
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//span[@class='ml8 dashed-text']")
+    @FindBy(xpath = ".//span[@class='ml8 dashed-text']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//a[contains(@class ,'dn aic jcc favorites')]//div[contains(@class,'df aic jcc pa badge')]")
+    @FindBy(xpath = ".//a[contains(@class ,'dn aic jcc favorites')]//div[contains(@class,'df aic jcc pa badge')]")
     private WebElement wishList;
 
-    @FindBy(xpath = "//div[@class='menu--desktop__title']")
+    @FindBy(xpath = ".//div[@class='menu--desktop__title']")
     private WebElement catalog;
 
-    @FindBy(xpath = "//div[contains(@class,'dib df basket')]")
+    @FindBy(xpath = ".//div[contains(@class,'dib df basket')]")
     private WebElement basket;
 
-    @FindBy(xpath = "//div[contains(@class,'scrollButton')]")
+    @FindBy(xpath = ".//div[contains(@class,'scrollButton')]")
     private WebElement scrollButton;
 
-    @FindBy(xpath = " //a[@href='/uk/']")
+    @FindBy(xpath = ".//a[@href='/uk/']")
     private WebElement Language;
 
-    @FindBy(xpath = "//input[@type='text'] ")
+    @FindBy(xpath = ".//input[@type='text'] ")
     private WebElement topSearch;
 
-    @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')]//div[@class='pr']")
+    @FindBy(xpath = ".//a[contains(@class,'dn aic jcc favorites')]//div[@class='pr']")
     private WebElement wishCount;
 
     Actions builder = new Actions(BrowserСhoice.getDriver());
@@ -54,6 +54,7 @@ public class MainPage extends BasePage {
     public void moveMouseToCatalogBar() {
         builder.moveToElement(getCatalog());
     }
+
     public Point getPoint() {
         WebElement el = getBasket();
         return el.getLocation();

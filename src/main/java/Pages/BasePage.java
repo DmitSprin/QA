@@ -3,8 +3,6 @@ package Pages;
 import Browser.BrowserСhoice;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 

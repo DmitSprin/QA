@@ -23,7 +23,7 @@ public class TestRunner {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-      //  BrowserСhoice.closeBrowser();
+        BrowserСhoice.closeBrowser();
     }
 
     @DataProvider(name = "exist user")
