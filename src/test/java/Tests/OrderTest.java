@@ -1,6 +1,8 @@
 package Tests;
 
 import BaseTest.TestRunner;
+import Components.Buttons.BuyButton;
+import Components.Component;
 import Steps.LoginSteps;
 import Steps.ProductSteps;
 import Steps.RegisterSteps;
@@ -11,11 +13,14 @@ import org.testng.annotations.Test;
 public class OrderTest extends TestRunner {
 
     @Test(dataProvider = "products name")
-    public void searchWithCatalog(String cat, String subCat, String prod) {
+    public void searchWithCatalog(String cat, String subCat, String prod) throws InterruptedException {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         productPage.clickOnFirstProduct();
-        productPage.clickOnBuyButton();
+        //productPage.clickOnBuyButton();
+        //Component.getComponent(BuyButton.class,"buyButton").click();
+        var Comp =  Component.component(BuyButton.class,"buyButton");
+        Comp.click();
         String productName = productPage.orderConfirmText();
         Assert.assertTrue(productName.contains(prod));
     }
