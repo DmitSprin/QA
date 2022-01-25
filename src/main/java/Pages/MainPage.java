@@ -44,15 +44,15 @@ public class MainPage extends BasePage {
     }
 
     public void clickOnLoginButton() {
-        getLoginButton().click();
+        loginButton.click();
     }
 
     public void clickOnWishList() {
-        getWishList().click();
+        wishList.click();
     }
 
     public void moveMouseToCatalogBar() {
-        builder.moveToElement(getCatalog());
+        builder.moveToElement(catalog);
     }
 
     public Point getPoint() {
@@ -61,19 +61,19 @@ public class MainPage extends BasePage {
     }
 
     public void changeLanguage() {
-        getLanguage().click();
+        Language.click();
     }
 
     public void sendProductNameInTopSearch(String st) {
-        getTopSearch().sendKeys(st);
-        getTopSearch().sendKeys(Keys.ENTER);
+        topSearch.sendKeys(st);
+        topSearch.sendKeys(Keys.ENTER);
     }
 
     public String getNumberFomWishList() {
-        return getWishList().getText();
+        return wishList.getText();
     }
 
     public void clickOnScrollButton() {
-        getScrollButton().click();
+        scrollButton.click();
     }
 }

@@ -36,36 +36,36 @@ public class ProductPage extends BasePage {
     private WebElement productPageLoadMarker;
 
     public String getNameFromFirstProduct() {
-        return getFirstProductOnPage().getText();
+        return firstProductOnPage.getText();
     }
 
     public void clickOnFirstProduct() {
-        getFirstProductOnPage().click();
-        ExplicitStrategy.waitUntilElementToBeVisibility(getProductPageLoadMarker());
+        firstProductOnPage.click();
+        ExplicitStrategy.waitUntilElementToBeVisibility(productPageLoadMarker);
     }
 
     public WebElement returnFirstProduct() {
-        return getFirstProductOnPage();
+        return firstProductOnPage;
     }
 
     public void clickOnBuyButton() {
-        WebElement waitingElement = ExplicitStrategy.waitForElement(getBuyButton());
+        WebElement waitingElement = ExplicitStrategy.waitForElement(buyButton);
         waitingElement.click();
     }
 
     public String orderConfirmText() {
-        return getOrderConfirm().getText();
+        return orderConfirm.getText();
     }
 
     public List<String> findAllProductsAndReturnName() {
-        ExplicitStrategy.waitForElements(getProducts());
-        return getProducts().stream().map(WebElement::getText).toList();
+        ExplicitStrategy.waitForElements(products);
+        return products.stream().map(WebElement::getText).toList();
     }
 
     public void addToWishListButton() {
         LoginPage loginPageLocator = new LoginPage();
         PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);
         ExplicitStrategy.waitForElement(loginPageLocator.getAccount());
-        getAddToWishList().click();
+        addToWishList.click();
     }
 }

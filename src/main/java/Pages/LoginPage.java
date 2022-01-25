@@ -40,31 +40,31 @@ public class LoginPage extends BasePage {
     }
 
     public void sendDataInNumberField(User user) {
-        getEntryFieldByLoginByPhone().sendKeys(user.getPhoneNumber());
+        entryFieldByLoginByPhone.sendKeys(user.getPhoneNumber());
     }
 
     public String getTextFromMobileMessageEntrance() {
-        return getMobileMessageEntrance().getText();
+        return mobileMessageEntrance.getText();
     }
 
     public void sendTextIntoEmailRegisterForm(User dao) {
-        getEntryFieldByLoginByEmail().sendKeys(dao.getEmail());
+        entryFieldByLoginByEmail.sendKeys(dao.getEmail());
     }
 
     public void clickOnLoginByEmail() {
-        getLoginByEmail().click();
+        loginByEmail.click();
     }
 
     public void sendPasswordInPasswordField(User user) {
-        getPasswordFormForLogin().sendKeys(user.getPassword());
+        passwordFormForLogin.sendKeys(user.getPassword());
     }
 
     public void sendInFieldForMessageVerification(User user) {
-        getFieldForMessageVerification().sendKeys(user.getPhoneNumber());
+        fieldForMessageVerification.sendKeys(user.getPhoneNumber());
     }
 
     public String getAccountNameText() {
-        return getAccount().getText();
+        return account.getText();
     }
 }
 

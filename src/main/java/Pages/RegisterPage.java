@@ -24,22 +24,22 @@ public class RegisterPage extends BasePage {
     private WebElement registerButton;
 
     public void sendNameInRegisterField(User user) {
-        getRegisterFieldForName().sendKeys(user.getUserName());
+        registerFieldForName.sendKeys(user.getUserName());
     }
 
     public void sendEmailInRegisterField(User user) {
-        getRegisterFieldForEmail().sendKeys(user.getEmail());
+        registerFieldForEmail.sendKeys(user.getEmail());
     }
 
     public void sendPasswordInRegisterField(User user) {
-        getRegisterFieldForPassword().sendKeys(user.getPassword());
+        registerFieldForPassword.sendKeys(user.getPassword());
     }
 
     public void sendPhoneInRegisterField(User user) {
-        getRegisterFieldForPhone().sendKeys(user.getPhoneNumber());
+        registerFieldForPhone.sendKeys(user.getPhoneNumber());
     }
 
     public void clickOnRegisterButton() {
-        getRegisterButton().click();
+        registerButton.click();
     }
 }
