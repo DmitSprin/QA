@@ -1,6 +1,9 @@
 package Tests;
 
 import BaseTest.TestRunner;
+import Components.Frameworks.ProductFrame;
+import Components.Frameworks.ProductsFrame;
+import Components.Utils.Component;
 import Steps.ProductSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,5 +26,14 @@ public class SearchTest extends TestRunner {
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         String productName = productPage.getNameFromFirstProduct();
         Assert.assertTrue(productName.contains(prod));
+    }
+
+    @Test(dataProvider = "products name")
+    public void searchWithCatalogComponent(String cat, String subCat, String prod) {
+        ProductSteps productPage = mainPage.moveToCatalog();
+        productPage.choiceСategoryAndSubCategory(cat, subCat);
+        var MainFrame = Component.getComponent(ProductsFrame.class ,"catalog" );
+        var SelectProduct = Component.getComponent(ProductFrame.class,"Apple iPhone 12 ",MainFrame);
+        SelectProduct.click();
     }
 }

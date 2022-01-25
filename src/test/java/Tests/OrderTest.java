@@ -2,6 +2,7 @@ package Tests;
 
 import BaseTest.TestRunner;
 import Components.Buttons.BuyButton;
+import Components.TopSearch.TopSearch;
 import Components.Utils.Component;
 import Steps.LoginSteps;
 import Steps.ProductSteps;
