@@ -38,7 +38,7 @@ public class LoginPage extends  BasePage{
     private WebElement registeringButton;
 
     public void clickOnLoginButton() {
-        getLoginByPhone().click();
+        loginByPhone.click();
     }
 
     public void sendDataInNumberField(User user) {

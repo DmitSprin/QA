@@ -1,28 +1,33 @@
 package Components.TopSearch;
 
-import Browser.BrowserСhoice;
-import Components.Component;
-import Components.IComponent;
+import Components.Utils.BaseComponent;
+import Components.Utils.Component;
 import Utils.ExplicitStrategy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 
-public class TopSearch extends RemoteWebElement implements IComponent {
+public class TopSearch extends BaseComponent {
 
     private String nameIdentifier = Component.getIdentifier();
 
     private WebElement topSearch;
 
     @Override
-    public WebElement construct() {
-        return topSearch = ExplicitStrategy.waitForElement(BrowserСhoice
-                .getDriver().findElement(By.xpath(".//button[contains(@class,'" + nameIdentifier + "')]")));
+    public WebElement build() {
+        return ExplicitStrategy.waitForElement(
+                construct());
     }
 
     @Override
-    public WebElement build() {
-        return construct();
+    public By construct() {
+        return By.xpath(".//input[@type='" + nameIdentifier + "']");
     }
 
+
+    public Component sendMessageInTopFieldAndSearch(String text) {
+        build().sendKeys(text);
+        build().sendKeys(Keys.ENTER);
+        return new Component();
+    }
 }

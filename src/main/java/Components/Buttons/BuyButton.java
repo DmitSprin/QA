@@ -1,15 +1,12 @@
 package Components.Buttons;
 
-import Browser.BrowserСhoice;
-import Components.Component;
-import Components.IComponent;
+import Components.Utils.BaseComponent;
+import Components.Utils.Component;
 import Utils.ExplicitStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 
-
-public class BuyButton extends RemoteWebElement implements IComponent {
+public class BuyButton extends BaseComponent implements WebElement {
 
     private WebElement buyButton;
 
@@ -17,19 +14,19 @@ public class BuyButton extends RemoteWebElement implements IComponent {
     //buyButton
 
     @Override
-    public WebElement construct() {
-        return buyButton = ExplicitStrategy.waitForElement(BrowserСhoice
-                .getDriver().findElement(By.xpath(".//button[contains(@class,'" + nameIdentifier + "')]")));
-
+    public WebElement build() {
+        return ExplicitStrategy.waitForElement(
+                construct());
     }
 
     @Override
-    public WebElement build() {
-        return construct();
+    public By construct() {
+        return By.xpath(".//button[contains(@class,'" + nameIdentifier + "')]");
     }
 
+    @Override
     public void click() {
-        construct().click();
+        build().click();
     }
 
 }
