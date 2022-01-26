@@ -29,19 +29,13 @@ public class MainPage extends BasePage {
     private WebElement scrollButton;
 
     @FindBy(xpath = ".//a[@href='/uk/']")
-    private WebElement Language;
+    private WebElement language;
 
     @FindBy(xpath = ".//input[@type='text'] ")
     private WebElement topSearch;
 
     @FindBy(xpath = ".//a[contains(@class,'dn aic jcc favorites')]//div[@class='pr']")
     private WebElement wishCount;
-
-    Actions builder = new Actions(BrowserСhoice.getDriver());
-
-    public static MainSteps getMainPage() {
-        return new MainSteps();
-    }
 
     public void clickOnLoginButton() {
         loginButton.click();
@@ -52,16 +46,16 @@ public class MainPage extends BasePage {
     }
 
     public void moveMouseToCatalogBar() {
-        builder.moveToElement(catalog);
+        actions.moveToElement(catalog);
     }
 
     public Point getPoint() {
-        WebElement el = getBasket();
-        return el.getLocation();
+        WebElement basket = getBasket();
+        return basket.getLocation();
     }
 
     public void changeLanguage() {
-        Language.click();
+        language.click();
     }
 
     public void sendProductNameInTopSearch(String st) {

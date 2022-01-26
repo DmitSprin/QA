@@ -18,12 +18,12 @@ public class TestRunner {
     public void setUpDriver() {
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
         BrowserСhoice.getUrl(baseUrl);
-        mainPage = MainSteps.getMainPage();
+        mainPage = new MainSteps();
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        BrowserСhoice.closeBrowser();
+       // BrowserСhoice.closeBrowser();
     }
 
     @DataProvider(name = "exist user")

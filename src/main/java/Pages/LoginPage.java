@@ -9,38 +9,38 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends BasePage {
 
     @FindBy(xpath = ".//input[@name='phone']")
-    private WebElement entryFieldByLoginByPhone;
+    private WebElement loginByPhoneField;
 
     @FindBy(xpath = ".//span[contains(@class,'dashed-text autorizeName')]")
     private WebElement account;
 
     @FindBy(xpath = ".//input[@name='password']")
-    private WebElement passwordFormForLogin;
+    private WebElement passwordField;
 
     @FindBy(xpath = ".//div[@class='full-height df fdc jcc'] //p")
     private WebElement mobileMessageEntrance;
 
     @FindBy(xpath = ".//input[@name ='code']")
-    private WebElement fieldForMessageVerification;
+    private WebElement messageVerificationField;
 
     @FindBy(xpath = ".//button[@type='submit']")
-    private WebElement loginByPhone;
+    private WebElement loginByPhoneButton;
 
     @FindBy(xpath = ".//div[@class='full-height df fdc jcc']//button[@type='button']")
     private WebElement loginByEmail;
 
     @FindBy(xpath = ".//input[@name='email']")
-    private WebElement entryFieldByLoginByEmail;
+    private WebElement emailLoginField;
 
     @FindBy(xpath = ".//div[@class='full-height df fdc jcc']//a[@class='link']")
     private WebElement registeringButton;
 
     public void clickOnLoginButton() {
-        getLoginByPhone().click();
+        loginByPhoneButton.click();
     }
 
     public void sendDataInNumberField(User user) {
-        entryFieldByLoginByPhone.sendKeys(user.getPhoneNumber());
+        loginByPhoneField.sendKeys(user.getPhoneNumber());
     }
 
     public String getTextFromMobileMessageEntrance() {
@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
     }
 
     public void sendTextIntoEmailRegisterForm(User dao) {
-        entryFieldByLoginByEmail.sendKeys(dao.getEmail());
+        emailLoginField.sendKeys(dao.getEmail());
     }
 
     public void clickOnLoginByEmail() {
@@ -56,15 +56,14 @@ public class LoginPage extends BasePage {
     }
 
     public void sendPasswordInPasswordField(User user) {
-        passwordFormForLogin.sendKeys(user.getPassword());
+        passwordField.sendKeys(user.getPassword());
     }
 
     public void sendInFieldForMessageVerification(User user) {
-        fieldForMessageVerification.sendKeys(user.getPhoneNumber());
+        messageVerificationField.sendKeys(user.getPhoneNumber());
     }
 
     public String getAccountNameText() {
         return account.getText();
     }
 }
-

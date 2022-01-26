@@ -6,13 +6,17 @@ import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.List;
 
 @Getter
 public class ProductPage extends BasePage {
 
     @FindBy(xpath = ".//div[contains(@class,'md-description')]//h5")
-    private List<WebElement> products;
+    private List<WebElement> productsFromSearch;
+
+    @FindBy(xpath = "//div[@class='catalog-facet']//div[contains(@class,'-box pr productCardCategory')]")
+    private List<WebElement> productsFromCatalog;
 
     @FindBy(xpath = ".//div[contains(@class,'border-box pr productCardCategory')]")
     private WebElement firstProductOnPage;
@@ -44,9 +48,9 @@ public class ProductPage extends BasePage {
         ExplicitStrategy.waitUntilElementToBeVisibility(productPageLoadMarker);
     }
 
-    public WebElement returnFirstProduct() {
-        return firstProductOnPage;
-    }
+    //public WebElement returnFirstProduct() {
+    //    return firstProductOnPage;
+    //  }
 
     public void clickOnBuyButton() {
         WebElement waitingElement = ExplicitStrategy.waitForElement(buyButton);
@@ -57,9 +61,13 @@ public class ProductPage extends BasePage {
         return orderConfirm.getText();
     }
 
-    public List<String> findAllProductsAndReturnName() {
-        ExplicitStrategy.waitForElements(products);
-        return products.stream().map(WebElement::getText).toList();
+    public List<String> findAllProductsFromSearchAndReturnName() {
+        ExplicitStrategy.waitForElements(productsFromSearch);
+        return productsFromSearch.stream().map(WebElement::getText).toList();
+    }
+
+    public List<WebElement> findAllProductsFromCatalogAndReturnWebElement() {
+       return ExplicitStrategy.waitForElements(productsFromCatalog);
     }
 
     public void addToWishListButton() {
