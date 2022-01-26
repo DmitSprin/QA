@@ -8,18 +8,14 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 public class BaseComponent extends RemoteWebElement {
 
-    private String identifier = Component.getIdentifier();
-
-    private static WebElement parent = Component.getParent();
-
     public By construct() {
-        return By.xpath(identifier);
+        return By.xpath(Component.getIdentifier());
     }
 
     public WebElement build() {
-        if (parent != null) {
-            WebElement Parent = ExplicitStrategy.waitForElement(parent);
-            ExplicitStrategy.waitForElement(Parent.findElement(construct()));
+        if (Component.getParent() != null) {
+            WebElement parentWebElement = ExplicitStrategy.waitForElement(Component.getParent());
+            return ExplicitStrategy.waitForElement(parentWebElement.findElement(construct()));
 
         }
         return ExplicitStrategy.waitForElement(

@@ -7,6 +7,7 @@ import Components.Utils.Component;
 import Steps.ProductSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.util.List;
 
 public class SearchTest extends TestRunner {
@@ -32,8 +33,7 @@ public class SearchTest extends TestRunner {
     public void searchWithCatalogComponent(String cat, String subCat, String prod) {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
-        var MainFrame = Component.getComponent(ProductsFrame.class ,"catalog" );
-        var SelectProduct = Component.getComponent(ProductFrame.class,"Apple iPhone 12 ",MainFrame);
-        SelectProduct.click();
+        var MainFrame = Component.getComponent(ProductsFrame.class, "catalog");
+        Component.getComponent(ProductFrame.class, "Apple iPhone 11 ", MainFrame).click();
     }
 }

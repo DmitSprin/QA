@@ -1,5 +1,6 @@
 package Components.Frameworks;
 
+import Components.Buttons.BuyButton;
 import Components.Utils.BaseComponent;
 import Components.Utils.Component;
 import org.openqa.selenium.By;
@@ -7,10 +8,14 @@ import org.openqa.selenium.By;
 public class ProductFrame extends BaseComponent {
 
 //Apple iPhone 12 Pro 256GB Graphite (MGMP3)
-private String nameIdentifier = Component.getIdentifier();
-
     @Override
     public By construct() {
-        return By.xpath(".//a[contains(text(),'"+nameIdentifier+"')]");
+        return By.xpath(".//a[contains(text(),'"+Component.getIdentifier()+"')]");
+    }
+
+    public Component selectAndClickBuyButton(){
+      var buyButton =  Component.getComponent(BuyButton.class,"buyButton",build());
+        buyButton.click();
+        return new Component();
     }
 }

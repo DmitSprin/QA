@@ -12,20 +12,19 @@ public class Component {
     private static WebElement parent;
 
     public static <T extends BaseComponent> WebElement getComponent(Class<T> ob, String ident) {
-        identifier = ident;
+        setIdentifier(ident);
         T object = ComponentHandler.catchComponentInstanceEx(ob);
         return object.build();
     }
 
     public static <T extends BaseComponent> T component(Class<T> ob, String ident) {
-        identifier = ident;
-        T object = ComponentHandler.catchComponentInstanceEx(ob);
-        return object;
+        setIdentifier(ident);
+        return ComponentHandler.catchComponentInstanceEx(ob);
     }
 
     public static <T extends BaseComponent> WebElement getComponent(Class<T> ob, String ident, WebElement part) {
-        identifier = ident;
-        parent = part;
+        setParent(part);
+        setIdentifier(ident);
         T object = ComponentHandler.catchComponentInstanceEx(ob);
         return object.build();
     }
@@ -35,9 +34,14 @@ public class Component {
     }
 
     public static WebElement getParent() {
-        if (parent == null) {
-            return null;
-        }
         return parent;
+    }
+
+    public static void setIdentifier(String ident) {
+        identifier = ident;
+    }
+
+    public static void setParent(WebElement parnt) {
+        parent = parnt;
     }
 }

@@ -8,11 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class BuyButton extends BaseComponent implements WebElement {
 
-    private WebElement buyButton;
-
-    private String nameIdentifier = Component.getIdentifier();
     //buyButton
-
     @Override
     public WebElement build() {
         return ExplicitStrategy.waitForElement(
@@ -21,7 +17,7 @@ public class BuyButton extends BaseComponent implements WebElement {
 
     @Override
     public By construct() {
-        return By.xpath(".//button[contains(@class,'" + nameIdentifier + "')]");
+        return By.xpath(".//button[contains(@class,'" + Component.getIdentifier() + "')]");
     }
 
     @Override
