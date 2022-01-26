@@ -13,66 +13,61 @@ import org.openqa.selenium.support.FindBy;
 @Getter
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//span[@class='ml8 dashed-text']")
+    @FindBy(xpath = ".//span[@class='ml8 dashed-text']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//a[contains(@class ,'dn aic jcc favorites')]//div[contains(@class,'df aic jcc pa badge')]")
+    @FindBy(xpath = ".//a[contains(@class ,'dn aic jcc favorites')]//div[contains(@class,'df aic jcc pa badge')]")
     private WebElement wishList;
 
-    @FindBy(xpath = "//div[@class='menu--desktop__title']")
+    @FindBy(xpath = ".//div[@class='menu--desktop__title']")
     private WebElement catalog;
 
-    @FindBy(xpath = "//div[contains(@class,'dib df basket')]")
+    @FindBy(xpath = ".//div[contains(@class,'dib df basket')]")
     private WebElement basket;
 
-    @FindBy(xpath = "//div[contains(@class,'scrollButton')]")
+    @FindBy(xpath = ".//div[contains(@class,'scrollButton')]")
     private WebElement scrollButton;
 
-    @FindBy(xpath = " //a[@href='/uk/']")
-    private WebElement Language;
+    @FindBy(xpath = ".//a[@href='/uk/']")
+    private WebElement language;
 
-    @FindBy(xpath = "//input[@type='text'] ")
+    @FindBy(xpath = ".//input[@type='text'] ")
     private WebElement topSearch;
 
-    @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')]//div[@class='pr']")
+    @FindBy(xpath = ".//a[contains(@class,'dn aic jcc favorites')]//div[@class='pr']")
     private WebElement wishCount;
 
-    Actions builder = new Actions(BrowserСhoice.getDriver());
-
-    public static MainSteps getMainPage() {
-        return new MainSteps();
-    }
-
     public void clickOnLoginButton() {
-        getLoginButton().click();
+        loginButton.click();
     }
 
     public void clickOnWishList() {
-        getWishList().click();
+        wishList.click();
     }
 
     public void moveMouseToCatalogBar() {
-        builder.moveToElement(getCatalog());
+        actions.moveToElement(catalog);
     }
+
     public Point getPoint() {
-        WebElement el = getBasket();
-        return el.getLocation();
+        WebElement basket = getBasket();
+        return basket.getLocation();
     }
 
     public void changeLanguage() {
-        getLanguage().click();
+        language.click();
     }
 
     public void sendProductNameInTopSearch(String st) {
-        getTopSearch().sendKeys(st);
-        getTopSearch().sendKeys(Keys.ENTER);
+        topSearch.sendKeys(st);
+        topSearch.sendKeys(Keys.ENTER);
     }
 
     public String getNumberFomWishList() {
-        return getWishList().getText();
+        return wishList.getText();
     }
 
     public void clickOnScrollButton() {
-        getScrollButton().click();
+        scrollButton.click();
     }
 }

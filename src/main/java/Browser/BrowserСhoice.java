@@ -1,6 +1,7 @@
 package Browser;
 
 import org.openqa.selenium.WebDriver;
+
 import java.util.HashMap;
 import java.util.Map;
 
