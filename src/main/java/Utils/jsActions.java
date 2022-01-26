@@ -5,7 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class JsCod {
+public class jsActions {
 
     public static void scrollDown() {
         JavascriptExecutor js = (JavascriptExecutor) BrowserСhoice.getDriver();

@@ -2,7 +2,7 @@ package BaseTest;
 
 import Browser.BrowserFactory;
 import Browser.BrowserСhoice;
-import Steps.MainPage;
+import Steps.MainSteps;
 import UserDao.UserRepo;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,13 +12,13 @@ public class TestRunner {
     //https://www.ctrs.com.ua/
     final static String baseUrl = "https://www.citrus.com.ua/uk/";
 
-    public static MainPage mainPage;
+    public static MainSteps mainPage;
 
     @BeforeMethod(alwaysRun = true)
     public void setUpDriver() {
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
         BrowserСhoice.getUrl(baseUrl);
-        mainPage = MainPage.getMainPage();
+        mainPage = new MainSteps();
     }
 
     @AfterMethod(alwaysRun = true)

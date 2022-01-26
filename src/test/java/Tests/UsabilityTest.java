@@ -1,8 +1,8 @@
 package Tests;
 
 import BaseTest.TestRunner;
-import Steps.ProductPage;
-import Utils.JsCod;
+import Steps.ProductSteps;
+import Utils.jsActions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,13 +12,13 @@ public class UsabilityTest extends TestRunner {
     public void switchLanguage() {
         mainPage.changeLanguage();
         String URL = mainPage.getCurrentUrl();
-        Assert.assertEquals(URL, "https://www.citrus.com.ua/uk/");
+        Assert.assertEquals(URL, "https://www.ctrs.com.ua/uk/");
     }
 
     @Test()
     public void testScrollerPage() {
         var firstPosition = mainPage.getPoint();
-        JsCod.scrollDown();
+        jsActions.scrollDown();
         mainPage.clickOnScrollButton();
         var secondPosition = mainPage.getPoint();
         Assert.assertNotEquals(firstPosition.getY(), secondPosition.getY());
@@ -26,11 +26,11 @@ public class UsabilityTest extends TestRunner {
 
     @Test(dataProvider = "products name")
     public void scaleProductImageTest(String cat, String subCat, String pro) {
-        ProductPage productPage = mainPage.moveToCatalog();
+        ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
-        var demBeforeScale = productPage.returnFirstProduct().getSize().width;
+        var demBeforeScale = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
         mainPage.setMaxWindowResolution();
-        var demAfterScale = productPage.returnFirstProduct().getSize().width;
+        var demAfterScale = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
         Assert.assertNotEquals(demAfterScale, demBeforeScale);
     }
 }
