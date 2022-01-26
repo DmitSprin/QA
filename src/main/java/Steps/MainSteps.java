@@ -2,7 +2,6 @@ package Steps;
 
 import Pages.MainPage;
 
-
 public class MainSteps extends MainPage {
 
     MainPage mainPage = new MainPage();
