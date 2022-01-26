@@ -39,18 +39,10 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = ".//div[contains(@class,'full-width df jcc aic slide')]")
     private WebElement productPageLoadMarker;
 
-    public String getNameFromFirstProduct() {
-        return firstProductOnPage.getText();
-    }
-
     public void clickOnFirstProduct() {
         firstProductOnPage.click();
         ExplicitStrategy.waitUntilElementToBeVisibility(productPageLoadMarker);
     }
-
-    //public WebElement returnFirstProduct() {
-    //    return firstProductOnPage;
-    //  }
 
     public void clickOnBuyButton() {
         WebElement waitingElement = ExplicitStrategy.waitForElement(buyButton);

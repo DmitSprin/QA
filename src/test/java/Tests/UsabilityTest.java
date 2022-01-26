@@ -28,11 +28,9 @@ public class UsabilityTest extends TestRunner {
     public void scaleProductImageTest(String cat, String subCat, String pro) {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
-        //var demBeforeScale = productPage.returnFirstProduct().getSize().width;
-       var demBeforeScale  = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
+        var demBeforeScale = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
         mainPage.setMaxWindowResolution();
-       // var demAfterScale = productPage.returnFirstProduct().getSize().width;
-        var demAfterScale  = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
+        var demAfterScale = productPage.findAllProductsFromCatalogAndReturnWebElement().get(0).getSize().width;
         Assert.assertNotEquals(demAfterScale, demBeforeScale);
     }
 }

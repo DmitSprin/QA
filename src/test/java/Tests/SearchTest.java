@@ -22,7 +22,6 @@ public class SearchTest extends TestRunner {
     public void searchWithCatalog(String cat, String subCat, String prod) {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
-        //String productName = productPage.getNameFromFirstProduct();
         String productName = productPage.getProductsFromCatalog().get(0).getText();
         Assert.assertTrue(productName.contains(prod));
     }
