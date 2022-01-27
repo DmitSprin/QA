@@ -1,6 +1,8 @@
 package Steps;
 
+import Hooks.Hooks;
 import Pages.MainPage;
+import io.cucumber.java.en.When;
 
 public class MainSteps extends MainPage {
 
@@ -19,5 +21,10 @@ public class MainSteps extends MainPage {
     public ProductSteps moveToCatalog() {
         mainPage.moveMouseToCatalogBar();
         return new ProductSteps();
+    }
+
+    @When("We move mouse to the catalog")
+    public void weMoveMouseToTheCatalog() {
+        Hooks.getMainPage().moveToCatalog();
     }
 }

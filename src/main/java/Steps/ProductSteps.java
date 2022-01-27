@@ -1,7 +1,10 @@
 package Steps;
 
 import Browser.BrowserСhoice;
+import Hooks.Hooks;
 import Pages.ProductPage;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -30,5 +33,33 @@ public class ProductSteps extends ProductPage {
         allCategories.stream().filter(x -> x.getText().contains(cat))
                 .forEach(x -> builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
+    }
+
+
+
+    @When("We click on first product")
+    public void weClickOnFirstProduct() {
+        productPage.clickOnFirstProduct();
+    }
+
+    @When("We click on buy button")
+    public void weClickOnBuyButton() {
+        productPage.clickOnBuyButton();
+    }
+
+    @When("We choose {string} in catalog")
+    public void weChooseCatalogInCatalog(String catalog) {
+        choiceСategory(catalog);
+    }
+
+    @When("We choose {string} in sub catalog")
+    public void weChooseSubCatalogInSubCatalog(String subCatalog) {
+        moveToSubMenu(subCatalog);
+    }
+
+    @Then("We see {string} in basket")
+    public void weSeeProductInBasket(String product) {
+        System.out.println(product);
+
     }
 }

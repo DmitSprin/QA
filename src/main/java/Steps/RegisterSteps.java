@@ -15,4 +15,6 @@ public class RegisterSteps extends RegisterPage {
         registerPage.clickOnRegisterButton();
         return new RegisterSteps();
     }
+
+
 }
