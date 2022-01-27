@@ -3,9 +3,10 @@ package Components.Utils;
 
 import Components.ComponentExceptionHandler.ComponentHandler;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 
-public class Component {
+public class Component extends RemoteWebDriver {
 
     private static String identifier;
 

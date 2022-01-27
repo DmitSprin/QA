@@ -59,7 +59,7 @@ public class ProductPage extends BasePage {
     }
 
     public List<WebElement> findAllProductsFromCatalogAndReturnWebElement() {
-       return ExplicitStrategy.waitForElements(productsFromCatalog);
+        return ExplicitStrategy.waitForElements(productsFromCatalog);
     }
 
     public void addToWishListButton() {

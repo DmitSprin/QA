@@ -10,7 +10,7 @@ public class ProductFrame extends BaseComponent {
 //Apple iPhone 12 Pro 256GB Graphite (MGMP3)
     @Override
     public By construct() {
-        return By.xpath(".//a[contains(text(),'"+Component.getIdentifier()+"')]");
+        return By.xpath(".//a[contains(text(),'"+Component.getIdentifier()+"')]/parent::*");
     }
 
     public Component selectAndClickBuyButton(){
