@@ -3,6 +3,7 @@ package Hooks;
 import Browser.BrowserFactory;
 import Browser.BrowserСhoice;
 import Steps.MainSteps;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Hooks {
@@ -20,5 +21,10 @@ public class Hooks {
 
     public static MainSteps getMainPage() {
         return mainPage;
+    }
+
+    @After
+    public void tearDown() {
+        BrowserСhoice.closeBrowser();
     }
 }

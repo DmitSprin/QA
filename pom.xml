@@ -47,7 +47,6 @@
             <artifactId>cucumber-java</artifactId>
             <version>6.10.2</version>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>

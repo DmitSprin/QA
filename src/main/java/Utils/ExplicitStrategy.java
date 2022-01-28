@@ -11,12 +11,13 @@ import java.util.List;
 
 public class ExplicitStrategy {
 
-    static WebDriverWait wait = new WebDriverWait(BrowserСhoice.getDriver(), Duration.ofSeconds(4));
+    static WebDriverWait wait = new WebDriverWait(BrowserСhoice.getDriver(), Duration.ofSeconds(9));
 
     public static WebElement waitForElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         return element;
     }
+
     public static WebElement waitForElement(By element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         return BrowserСhoice.getDriver().findElement(element);
