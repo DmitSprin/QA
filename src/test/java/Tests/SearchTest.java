@@ -1,8 +1,8 @@
 package Tests;
 
 import BaseTest.TestRunner;
-import Components.Frameworks.ProductFrame;
-import Components.Frameworks.ProductsFrame;
+import Components.Frames.ProductFrame;
+import Components.Frames.ProductsFrame;
 import Components.Utils.Component;
 import Steps.ProductSteps;
 import org.testng.Assert;
