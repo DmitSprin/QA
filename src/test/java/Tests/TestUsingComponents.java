@@ -5,7 +5,6 @@ import Components.Buttons.BuyButton;
 import Components.Frames.ProductFrame;
 import Components.Frames.ProductsFrame;
 import Components.Utils.Component;
-
 import Steps.ProductSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
