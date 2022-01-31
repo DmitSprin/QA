@@ -4,9 +4,7 @@ import Browser.BrowserСhoice;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
-
 
 public abstract class BasePage {
 

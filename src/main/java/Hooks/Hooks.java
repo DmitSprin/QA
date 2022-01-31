@@ -10,7 +10,7 @@ public class Hooks {
 
     final static String baseUrl = "https://www.citrus.com.ua/uk/";
 
-    public static MainSteps mainPage;
+    private static MainSteps mainPage;
 
     @Before
     public void setUp() {

@@ -7,7 +7,6 @@ import Components.Utils.Component;
 import Steps.ProductSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
 
 public class SearchTest extends TestRunner {
