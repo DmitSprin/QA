@@ -1,10 +1,10 @@
 package Utils;
 
 import Browser.BrowserСhoice;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -15,6 +15,10 @@ public class ExplicitStrategy {
     public static WebElement waitForElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         return element;
+    }
+    public static WebElement waitForElement(By element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        return BrowserСhoice.getDriver().findElement(element);
     }
 
     public static List<WebElement> waitForElements(List<WebElement> elements) {

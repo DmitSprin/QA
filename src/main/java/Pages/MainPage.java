@@ -1,14 +1,10 @@
 package Pages;
 
-import Browser.BrowserСhoice;
-import Steps.MainSteps;
 import lombok.Getter;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
 
 @Getter
 public class MainPage extends BasePage {

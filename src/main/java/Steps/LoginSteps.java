@@ -3,7 +3,6 @@ package Steps;
 import Pages.LoginPage;
 import UserDao.User;
 
-
 public class LoginSteps extends LoginPage {
 
     private LoginPage loginPage = new LoginPage();

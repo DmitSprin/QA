@@ -4,7 +4,6 @@ import Browser.BrowserСhoice;
 import Pages.ProductPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import java.util.List;
 
 public class ProductSteps extends ProductPage {

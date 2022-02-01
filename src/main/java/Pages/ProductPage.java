@@ -6,7 +6,6 @@ import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 @Getter
@@ -59,7 +58,7 @@ public class ProductPage extends BasePage {
     }
 
     public List<WebElement> findAllProductsFromCatalogAndReturnWebElement() {
-       return ExplicitStrategy.waitForElements(productsFromCatalog);
+        return ExplicitStrategy.waitForElements(productsFromCatalog);
     }
 
     public void addToWishListButton() {

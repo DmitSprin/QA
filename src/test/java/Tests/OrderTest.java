@@ -1,6 +1,8 @@
 package Tests;
 
 import BaseTest.TestRunner;
+import Components.Buttons.BuyButton;
+import Components.Utils.Component;
 import Steps.LoginSteps;
 import Steps.ProductSteps;
 import Steps.RegisterSteps;
@@ -15,13 +17,13 @@ public class OrderTest extends TestRunner {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);
         productPage.clickOnFirstProduct();
-        productPage.clickOnBuyButton();
+        Component.getComponent(BuyButton.class,"buyButton").click();
         String productName = productPage.orderConfirmText();
         Assert.assertTrue(productName.contains(prod));
     }
 
     @Test(dataProvider = "new user")
-    public void addProductToWishList(User user) throws InterruptedException {
+    public void addProductToWishList(User user) {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфони", "Apple");
         productPage.clickOnFirstProduct();
