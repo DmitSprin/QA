@@ -1,6 +1,5 @@
 package Components.Utils;
 
-
 import Utils.ExplicitStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,7 +15,6 @@ public class BaseComponent extends RemoteWebElement {
         if (Component.getParent() != null) {
             WebElement parentWebElement = ExplicitStrategy.waitForElement(Component.getParent());
             return ExplicitStrategy.waitForElement(parentWebElement.findElement(construct()));
-
         }
         return ExplicitStrategy.waitForElement(
                 construct());

@@ -1,9 +1,11 @@
 package Pages;
 
+import Browser.BrowserСhoice;
 import Utils.ExplicitStrategy;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 @Getter
@@ -55,16 +57,13 @@ public class ProductPage extends BasePage {
         return productsFromSearch.stream().map(WebElement::getText).toList();
     }
 
-    public List<WebElement> findAllProductsFromSearchAndReturnWebElement() {
-        return productsFromSearch;
-    }
-
     public List<WebElement> findAllProductsFromCatalogAndReturnWebElement() {
         return ExplicitStrategy.waitForElements(productsFromCatalog);
     }
 
     public void addToWishListButton() {
         LoginPage loginPageLocator = new LoginPage();
+        PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);
         ExplicitStrategy.waitForElement(loginPageLocator.getAccount());
         addToWishList.click();
     }
