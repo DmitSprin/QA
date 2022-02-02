@@ -61,6 +61,10 @@ public class ProductPage extends BasePage {
         return ExplicitStrategy.waitForElements(productsFromCatalog);
     }
 
+    public List<WebElement> findAllProductsFromSearchAndReturnWebElement() {
+        return productsFromSearch;
+    }
+
     public void addToWishListButton() {
         LoginPage loginPageLocator = new LoginPage();
         PageFactory.initElements(BrowserСhoice.getDriver(), loginPageLocator);

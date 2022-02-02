@@ -60,8 +60,7 @@ public class LoginPage extends BasePage {
     }
 
     public void sendInFieldForMessageVerification(User user) {
-        messageVerificationField.sendKeys(user.getPhoneNumber());
-    }
+        messageVerificationField.sendKeys(user.getPhoneNumber());}
 
     public String getAccountNameText() {
         return account.getText();
