@@ -1,34 +1,28 @@
-Feature: We can login on site and register on site
+Feature: User can login on site and register on site
 
+  Scenario: User want login by phone number
+    Given User on main page
+    When User click on sign in button
+    When User enter phone number in phone field
+    When User click on login button
+    Then User see successful message
 
-  Scenario: We want login by phone number
+  Scenario: User want login by email address
+    Given User on main page
+    When User click on sign in button
+    When User click on sign in by email
+    When User enter email in email field
+    When User enter password in password field
+    When User click on login button
+    Then User can see user name
 
-    Given We on main page
-    When We click on sign in button
-    When We enter phone number in phone field
-    When We click on login button
-    Then We see successful message
-
-
-  Scenario: We want login by email address
-
-    Given We on main page
-    When We click on sign in button
-    When We click on sign in by email
-    When We enter email in email field
-    When We enter password in password field
-    When We click on login button
-    Then We can see user name
-
-
-  Scenario: We want register account
-
-    Given We on main page
-    When We click on sign in button
-    When We click on register button
-    When We send name in name field
-    When We send phone number in number field
-    When We send email in email field
-    When We send password in password field
-    When We send register new user button
-    Then We can see user name
+  Scenario: User want register account
+    Given User on main page
+    When User click on sign in button
+    When User click on register button
+    When User send name in name field
+    When User send phone number in number field
+    When User send email in email field
+    When User send password in password field
+    When User send register new user button
+    Then User can see user name

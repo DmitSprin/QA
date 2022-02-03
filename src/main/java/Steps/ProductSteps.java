@@ -34,33 +34,33 @@ public class ProductSteps extends ProductPage {
         moveToSubMenu(sub);
     }
 
-    @When("We click on first product")
+    @When("User click on first product")
     public void weClickOnFirstProduct() {
         clickOnFirstProduct();
     }
 
-    @When("We click on buy button")
+    @When("User click on buy button")
     public void weClickOnBuyButton() {
         clickOnBuyButton();
     }
 
-    @When("We choose {string} in catalog")
+    @When("User choose {string} in catalog")
     public void weChooseCatalogInCatalog(String catalog) {
         choiceСategory(catalog);
     }
 
-    @When("We choose {string} in sub catalog")
+    @When("User choose {string} in sub catalog")
     public void weChooseSubCatalogInSubCatalog(String subCatalog) {
         moveToSubMenu(subCatalog);
     }
 
-    @Then("We see {string} in basket")
+    @Then("User see {string} in basket")
     public void weSeeProductInBasket(String product) {
         String productName = orderConfirmText();
         Assert.assertTrue(productName.contains(product));
     }
 
-    @When("We click on product with {string} name")
+    @When("User click on product with {string} name")
     public void weClickOnProductWithProductName(String prod) {
         System.out.println(findAllProductsFromSearchAndReturnWebElement());
         WebElement product = findAllProductsFromSearchAndReturnWebElement()
@@ -68,7 +68,7 @@ public class ProductSteps extends ProductPage {
         product.click();
     }
 
-    @When("We click on add to wish list button")
+    @When("User click on add to wish list button")
     public void weClickOnAddToWishListButton() {
         addToWishListButton();
     }

@@ -39,57 +39,57 @@ public class LoginSteps extends LoginPage {
         return new RegisterSteps();
     }
 
-    @Given("We on main page")
+    @Given("User on main page")
     public void weOnMainPage() {
         String currentUrl = BrowserСhoice.getDriver().getCurrentUrl();
         String baseUrl = "https://www.citrus.com.ua/uk/";
         assert (Objects.equals(currentUrl, baseUrl));
     }
 
-    @When("We click on sign in button")
+    @When("User click on sign in button")
     public void weClickOnSignInButton() {
         Hooks.getMainPage().goToLoginPage();
     }
 
-    @When("We enter phone number in phone field")
+    @When("User enter phone number in phone field")
     public void weEnterPhoneNumberInPhoneField() {
         loginByPhoneNumber(user);
     }
 
-    @When("We click on register button")
+    @When("User click on register button")
     public void weClickOnRegisterButton() {
         goToRegisterPage();
     }
 
-    @When("We click on login button")
+    @When("User click on login button")
     public void weClickOnLoginButton() {
         loginPage.clickOnLoginButton();
     }
 
-    @Then("We see successful message")
+    @Then("User see successful message")
     public void weSeeSuccessfulMessage() {
         String phone = loginPage.getTextFromMobileMessageEntrance();
         Assert.assertTrue(phone.contains(user.getPhoneNumber()));
     }
 
-    @When("We click on sign in by email")
+    @When("User click on sign in by email")
     public void weClickOnSignInByEmail() {
         loginPage.getLoginByEmail().click();
     }
 
-    @Then("We can see user name")
+    @Then("User can see user name")
     public void weCanSeeUserName() {
         String name = loginPage.getAccountNameText();
         Assert.assertTrue(name.length() > 0);
     }
 
-    @When("We enter email in email field")
+    @When("User enter email in email field")
     public void weEnterEmailInEmailField() {
         loginPage.sendTextIntoEmailRegisterForm(user);
         loginPage.clickOnLoginButton();
     }
 
-    @When("We enter password in password field")
+    @When("User enter password in password field")
     public void weEnterPasswordInPasswordField() {
         loginPage.sendPasswordInPasswordField(user);
     }

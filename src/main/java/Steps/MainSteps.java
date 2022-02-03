@@ -24,22 +24,22 @@ public class MainSteps extends MainPage {
         return new ProductSteps();
     }
 
-    @When("We move mouse to the catalog")
+    @When("User move mouse to the catalog")
     public void weMoveMouseToTheCatalog() {
         Hooks.getMainPage().moveToCatalog();
     }
 
-    @When("We send {string} in top search field")
+    @When("User send {string} in top search field")
     public void weSendProductNameInTopSearchField(String product) {
         getTopSearch().sendKeys(product);
     }
 
-    @When("We click on search button")
+    @When("User click on search button")
     public void weClickOnSearchButton() {
         getTopSearch().sendKeys(Keys.ENTER);
     }
 
-    @Then("We should see product in basket")
+    @Then("User should see product in basket")
     public void weShouldSeeProductInBasket() {
         String numberOfProducts = getNumberFomWishList();
         Assert.assertEquals(numberOfProducts, "1");

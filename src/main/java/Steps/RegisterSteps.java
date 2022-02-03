@@ -19,27 +19,27 @@ public class RegisterSteps extends RegisterPage {
         return new RegisterSteps();
     }
 
-    @When("We send name in name field")
+    @When("User send name in name field")
     public void weSendNameInNameField() {
         sendNameInRegisterField(user);
     }
 
-    @When("We send phone number in number field")
+    @When("User send phone number in number field")
     public void weSendPhoneNumberInNumberField() {
         sendPhoneInRegisterField(user);
     }
 
-    @When("We send email in email field")
+    @When("User send email in email field")
     public void weSendEmailInEmailField() {
         sendEmailInRegisterField(user);
     }
 
-    @When("We send password in password field")
+    @When("User send password in password field")
     public void weSendPasswordInPasswordField() {
         sendPasswordInRegisterField(user);
     }
 
-    @When("We send register new user button")
+    @When("User send register new user button")
     public void weSendRegisterNewUserButton() {
         clickOnRegisterButton();
     }
