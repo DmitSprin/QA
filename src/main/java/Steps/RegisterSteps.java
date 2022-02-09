@@ -4,12 +4,15 @@ import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 
 public class RegisterSteps extends RegisterPage {
 
     User user = UserRepo.createNewUser();
 
     //Business logics
+    @Step("User register new account with name : {dao.userName} ,email" +
+            " :{dao.email}, password : {dao.password}")
     public RegisterSteps registerNewUser(User dao) {
         sendEmailInRegisterField(dao);
         sendNameInRegisterField(dao);

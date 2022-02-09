@@ -3,12 +3,17 @@ package Tests;
 import BaseTest.TestRunner;
 import Steps.ProductSteps;
 import Utils.jsActions;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class UsabilityTest extends TestRunner {
 
     @Test()
+    @Description("this test check the ability to change the language")
+    @Severity(SeverityLevel.MINOR)
     public void switchLanguage() {
         mainPage.changeLanguage();
         String URL = mainPage.getCurrentUrl();
@@ -16,6 +21,8 @@ public class UsabilityTest extends TestRunner {
     }
 
     @Test()
+    @Description("this test check the ability to use interactive elements of the site")
+    @Severity(SeverityLevel.TRIVIAL)
     public void testScrollerPage() {
         var firstPosition = mainPage.getPoint();
         jsActions.scrollDown();
@@ -25,6 +32,8 @@ public class UsabilityTest extends TestRunner {
     }
 
     @Test(dataProvider = "products name")
+    @Description("check for icon scaling depending on screen size change")
+    @Severity(SeverityLevel.TRIVIAL)
     public void scaleProductImageTest(String cat, String subCat, String pro) {
         ProductSteps productPage = mainPage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat, subCat);

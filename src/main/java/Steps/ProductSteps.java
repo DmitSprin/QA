@@ -4,29 +4,34 @@ import Browser.BrowserСhoice;
 import Pages.ProductPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductSteps extends ProductPage {
 
     private ProductPage productPage = new ProductPage();
     private Actions builder = new Actions(BrowserСhoice.getDriver());
 
+    @Step("User move mouse to {subProd} in submenu")
     public void moveToSubMenu(String subProd) {
         List<WebElement> subCategories = productPage.getSubCategories();
         List<WebElement> subCategoriesSorted =
-                subCategories.stream().filter(x -> x.getText().contains(subProd)).toList();
+                subCategories.stream().filter(x -> x.getText().contains(subProd)).collect(Collectors.toList());
         subCategoriesSorted.stream().findFirst().get().click();
     }
 
+    @Step("User move mouse to {cat} in product category")
     public void choiceСategory(String cat) {
         List<WebElement> allCategories = productPage.getCategories();
         allCategories.stream().filter(x -> x.getText().contains(cat))
                 .forEach(x -> builder.moveToElement(x).build().perform());
     }
 
+    @Step("User move mouse to {cat} and {sub} category")
     public void choiceСategoryAndSubCategory(String cat, String sub) {
         List<WebElement> allCategories = productPage.getCategories();
         allCategories.stream().filter(x -> x.getText().contains(cat))
@@ -64,7 +69,7 @@ public class ProductSteps extends ProductPage {
     public void weClickOnProductWithProductName(String prod) {
         System.out.println("productsFromSearch " + getProductsFromSearch());
         WebElement product = getProductsFromSearch()
-                .stream().filter(x -> x.getText().contains(prod)).toList().get(0);
+                .stream().filter(x -> x.getText().contains(prod)).collect(Collectors.toList()).get(0);
         product.click();
     }
 

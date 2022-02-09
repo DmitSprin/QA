@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class ProductPage extends BasePage {
@@ -54,7 +55,7 @@ public class ProductPage extends BasePage {
 
     public List<String> findAllProductsFromSearchAndReturnName() {
         ExplicitStrategy.waitForElements(productsFromSearch);
-        return productsFromSearch.stream().map(WebElement::getText).toList();
+        return productsFromSearch.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     public List<WebElement> findAllProductsFromCatalogAndReturnWebElement() {

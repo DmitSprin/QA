@@ -8,6 +8,7 @@ import UserDao.UserRepo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import java.util.Objects;
 
@@ -18,6 +19,7 @@ public class LoginSteps extends LoginPage {
     User user = UserRepo.getExistUser();
 
     // Business logics
+    @Step("User login by phone number {dao.phoneNumber}")
     public LoginSteps loginByPhoneNumber(User dao) {
         loginPage.sendDataInNumberField(dao);
         loginPage.clickOnLoginButton();
@@ -25,6 +27,7 @@ public class LoginSteps extends LoginPage {
         return new LoginSteps();
     }
 
+    @Step("User login by email {dao.email} ")
     public LoginSteps loginByEmailNumber(User dao) {
         loginPage.clickOnLoginByEmail();
         loginPage.sendTextIntoEmailRegisterForm(dao);
@@ -33,7 +36,7 @@ public class LoginSteps extends LoginPage {
         loginPage.clickOnLoginButton();
         return new LoginSteps();
     }
-
+    @Step("User go to register page ")
     public RegisterSteps goToRegisterPage() {
         loginPage.getRegisteringButton().click();
         return new RegisterSteps();
