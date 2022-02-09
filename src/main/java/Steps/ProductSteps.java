@@ -62,8 +62,8 @@ public class ProductSteps extends ProductPage {
 
     @When("User click on product with {string} name")
     public void weClickOnProductWithProductName(String prod) {
-        System.out.println(findAllProductsFromSearchAndReturnWebElement());
-        WebElement product = findAllProductsFromSearchAndReturnWebElement()
+        System.out.println("productsFromSearch " + getProductsFromSearch());
+        WebElement product = getProductsFromSearch()
                 .stream().filter(x -> x.getText().contains(prod)).toList().get(0);
         product.click();
     }
