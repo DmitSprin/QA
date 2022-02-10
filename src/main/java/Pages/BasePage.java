@@ -10,7 +10,7 @@ public abstract class BasePage {
 
     BasePage() {
         PageFactory.initElements(BrowserСhoice.getDriver(), this);
-        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
     }
 
     public Actions actions = new Actions(BrowserСhoice.getDriver());
